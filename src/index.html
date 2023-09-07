@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <title>Document</title>
+  <title>Leaderboard</title>
 </head>
 <body>
   <div class="leaderboard_container">
@@ -15,7 +15,7 @@
       <article class="leaderboard_section_container">
         <header class="leaderboard_header">
           <h2>Recent Scores</h2>
-          <button type="button">Refresh</button>
+          <button type="button" id="refresh">Refresh</button>
         </header>
         <article class="leaderboard" id="leaderboard">
           
@@ -26,10 +26,11 @@
         <header class="input_section_header">
           <h2>Add your score</h2>
         </header>
-        <form action="">
-          <input type="text" placeholder="Your name" required>
-          <input type="number" placeholder="Your score" required>
-          <button type="submit">Submit</button>
+        <form id="form">
+          <input id="name" name="name" type="text" placeholder="Your name" required>
+          <input id="score" name="number" type="number" placeholder="Your score" required>
+          <span id="message"></span>
+          <button type="submit" id="submit">Submit</button>
         </form>
       </article>
     </section>
