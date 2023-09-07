@@ -1,39 +1,3 @@
-const initializeGameId = async (baseUrl, gameName) => {
-  const gameId = localStorage.getItem(gameName);
-  if (!gameId) {
-    try {
-      const newGameId = await createGame(baseUrl, gameName);
-      localStorage.setItem(gameName, newGameId);
-      return newGameId;
-    } catch (error) {
-      return Promise.reject(error);
-    }
-  } else {
-    return gameId;
-  }
-};
-
-const createGame = async (baseUrl, name) => {
-  const url = `${ baseUrl }games/`;
-  const requestData = {name};
-  const response = await makeRequest(url, 'POST', requestData);
-  return response.result;
-};
-
-const addScore = async (baseUrl, gameId, user, score) => {
-  const url = `${ baseUrl }games/${ gameId }/scores/`;
-  const requestData = {user, score};
-  const response = await makeRequest(url, 'POST', requestData);
-  return response.result;
-};
-
-const getScores = async (baseUrl, gameId) => {
-  if (!gameId) return [];
-  const url = `${ baseUrl }games/${ gameId }/scores/`;
-  const response = await makeRequest(url);
-  return response.result;
-};
-
 const makeRequest = async (url, method = 'GET', requestData = null) => {
   const headers = {
     'Content-Type': 'application/json',
@@ -56,6 +20,42 @@ const makeRequest = async (url, method = 'GET', requestData = null) => {
   }
 
   return data;
+};
+
+const createGame = async (baseUrl, name) => {
+  const url = `${baseUrl}games/`;
+  const requestData = { name };
+  const response = await makeRequest(url, 'POST', requestData);
+  return response.result;
+};
+
+const initializeGameId = async (baseUrl, gameName) => {
+  const gameId = localStorage.getItem(gameName);
+  if (!gameId) {
+    try {
+      const newGameId = await createGame(baseUrl, gameName);
+      localStorage.setItem(gameName, newGameId);
+      return newGameId;
+    } catch (error) {
+      return Promise.reject(error);
+    }
+  } else {
+    return gameId;
+  }
+};
+
+const addScore = async (baseUrl, gameId, user, score) => {
+  const url = `${baseUrl}games/${gameId}/scores/`;
+  const requestData = { user, score };
+  const response = await makeRequest(url, 'POST', requestData);
+  return response.result;
+};
+
+const getScores = async (baseUrl, gameId) => {
+  if (!gameId) return [];
+  const url = `${baseUrl}games/${gameId}/scores/`;
+  const response = await makeRequest(url);
+  return response.result;
 };
 
 // Export functions

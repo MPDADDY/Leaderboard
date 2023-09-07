@@ -18,8 +18,8 @@ const renderScores = async () => {
       scoresArticle.innerHTML = '';
       scores.forEach((score, index) => {
         const scoreItem = document.createElement('p');
-        scoreItem.textContent = `${ score.user }: ${ score.score }`;
-        scoreItem.classList.add('list'); 
+        scoreItem.textContent = `${score.user}: ${score.score}`;
+        scoreItem.classList.add('list');
         if (index % 2 === 0) {
           scoreItem.classList.add('even-bg');
         } else {
@@ -33,7 +33,7 @@ const renderScores = async () => {
       </div>`;
     }
   } catch (error) {
-    myStatus.textContent = `${ error }: Check your Internet`;
+    myStatus.textContent = `${error}: Check your Internet`;
   }
 };
 
@@ -61,7 +61,7 @@ const handleSubmission = async (e) => {
         scoreInput.value = '';
       } catch (error) {
         myStatus.className = 'error';
-        myStatus.textContent = `${ error }: Check your Internet`;
+        myStatus.textContent = `${error}: Check your Internet`;
       }
 
       setTimeout(() => {
@@ -73,4 +73,4 @@ const handleSubmission = async (e) => {
   }
 };
 
-export {renderScores, handleSubmission};
+export { renderScores, handleSubmission };
