@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <title>Document</title>
-<script defer src="/runtime.a7b18e5dd560eafb6579.js"></script><script defer src="/index.4b9edf5139e19e08b38c.js"></script></head>
+  <title>Leaderboard</title>
+<script defer src="/runtime.a7b18e5dd560eafb6579.js"></script><script defer src="/index.b1ff6fdfe365d7c3e78c.js"></script></head>
 <body>
   <div class="leaderboard_container">
     <header>
@@ -15,7 +15,7 @@
       <article class="leaderboard_section_container">
         <header class="leaderboard_header">
           <h2>Recent Scores</h2>
-          <button type="button">Refresh</button>
+          <button type="button" id="refresh">Refresh</button>
         </header>
         <article class="leaderboard" id="leaderboard">
           
@@ -26,10 +26,11 @@
         <header class="input_section_header">
           <h2>Add your score</h2>
         </header>
-        <form action="">
-          <input type="text" placeholder="Your name" required>
-          <input type="number" placeholder="Your score" required>
-          <button type="submit">Submit</button>
+        <form id="form">
+          <input id="name" name="name" type="text" placeholder="Your name" required>
+          <input id="score" name="number" type="number" placeholder="Your score" required>
+          <span id="message"></span>
+          <button type="submit" id="submit">Submit</button>
         </form>
       </article>
     </section>
