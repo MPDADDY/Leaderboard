@@ -12,8 +12,9 @@ body {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) rotate(360deg);
   border: 3px solid black;
+  transition: 300ms;
   width: 600px;
   background-color: rgb(247, 243, 243);
 }
@@ -86,4 +87,25 @@ p {
 
 .odd-bg {
   background-color: rgb(181, 172, 172);
+}
+
+@media screen and (max-width: 600px) {
+  .leaderboard_section {
+    grid-template-columns: auto;
+    padding: 10px;
+  }
+
+  .leaderboard_container {
+    width: 100%;
+    height: 100%;
+    border: 1px solid gray;
+  }
+
+  h1 {
+    padding: 10px;
+  }
+
+  form {
+    width: 100%;
+  }
 }

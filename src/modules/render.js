@@ -69,7 +69,9 @@ const handleSubmission = async (e) => {
       }, 3000);
     }
   } else if (submitButton.id === 'refresh') {
-    window.location.reload();
+    setTimeout(3000, () => {
+      renderScores();
+    });
   }
 };
 
